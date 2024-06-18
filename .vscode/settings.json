@@ -1,0 +1,5 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./example-fastly-rust/Cargo.toml"
+    ]
+}

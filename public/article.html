@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lagom Gazette</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      color: #333 !important;
+      background-color: #fff;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      background-color: #f5f5f5;
+      padding-top: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+    .headerContainer {
+      max-width: 960px;
+      padding-left: 25px;
+      padding-right: 25px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin: 0;
+    }
+    header a {
+      /* margin-right: 20px; */
+      text-decoration: none;
+      color: #333;
+    }
+    main {
+      /* padding-top: 10px; */
+      padding-right: 25px;
+      padding-left: 25px;
+      padding-bottom: 20px;
+      flex: 1;
+    }
+    article h2 {
+      font-size: 1.4em;
+      margin-bottom: 5px;
+    }
+    article p {
+      line-height: 1.5;
+    }
+    aside {
+      z-index: 10;
+      width: 250px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-left: 1px solid #ddd;
+    }
+    aside h3 {
+      font-style: italic;
+      margin: auto;
+      padding-left: 0px;
+      width: 90%;
+      padding-bottom: 15px;
+      padding-top: 10px;
+    }
+    aside li {
+      padding-bottom: 15px;
+      list-style-type: none;
+    }
+    aside ul {
+      margin: auto;
+      padding-left: 0px;
+      width: 90%;
+    }
+    header a {
+      color: inherit;
+      text-decoration: inherit; /* no underline */
+    }
+    #payoutlink {
+      color: darkblue;
+    }
+    #payoutlink:hover {
+      filter: opacity(60%);
+    }
+    .nit {
+      margin-top: 40px;
+      font-style: italic;
+      font-size: 18px;
+      border-left: 4px solid crimson;
+      padding-left: 15px;
+      border-radius: 3px;
+      padding-top: 10px;
+      padding-bottom: 1px;
+    }
+    .explained {
+      color: crimson;
+      font-weight: bold;
+      user-select: none;
+    }
+    .nit p  {
+      padding-bottom: 15px;
+      margin: 0;
+      line-height: 25px;
+    }
+    article #fog {
+      height: 100px;
+      overflow-y: clip;
+    }
+    article #fog::before {
+      height: 100px;
+      /* margin-top: -100px; */
+      pointer-events: none;
+      content: " ";
+      background: linear-gradient(0deg, #fff 0, rgba(255, 255, 255, 0) 6.25rem);
+      display: block;
+      z-index: 5;
+      position: fixed;
+      width: 100%;
+      overflow-x: clip;
+      overflow-y: clip;
+    }
+    @media only screen and (max-width: 750px), only screen and (max-device-width: 750px) {
+      aside {
+        display: none;
+      }
+    }
+    #clickme {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 10px;
+      margin-left: -10px;
+      font-style: italic;
+    }
+    /* flashy arrow */
+    section {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      transform: scale(0.8);
+    }
+    section::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: white;
+    }
+    section h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      color: black;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .demo a {
+      position: absolute;
+      bottom: 55px;
+      left: 50%;
+      z-index: 2;
+      letter-spacing: .1em;
+      text-decoration: none;
+      transition: opacity .3s;
+      user-select: none;
+      cursor: unset;
+    }
+    #section a span {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 46px;
+      height: 46px;
+      margin-left: -23px;
+      border: 1px solid rgba(0, 0, 0, 1);
+      border-radius: 100%;
+      box-sizing: border-box;
+    }
+    #section a span::after {
+      position: absolute;
+      top: 68%;
+      left: 51%;
+      content: '';
+      width: 16px;
+      height: 16px;
+      margin: -12px 0 0 -8px;
+      border-left: 1px solid rgba(0, 0, 0, 1);
+      border-bottom: 1px solid rgba(0, 0, 0, 1);
+      transform: rotate(135deg);
+      box-sizing: border-box;
+    }
+    #section a span::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      content: '';
+      width: 44px;
+      height: 44px;
+      box-shadow: 0 0 0 0 rgba(0,0,0, 0.2);
+      border-radius: 100%;
+      opacity: 0;
+      animation: sdb03 3s infinite;
+      box-sizing: border-box;
+    }
+    @keyframes sdb03 {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      30% {
+        box-shadow: 0 0 0 15px rgba(0,0,0,.2);
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const embedded = urlParams.get('embedded');
+      if (embedded === 'true') {
+        document.querySelector('aside').style.display = 'none';
+        document.querySelector('.nit').style.display = 'none';
+        document.querySelector('#zuruck').style.display = 'none';
+        document.querySelector('#mainlink').href = '#';
+        document.querySelector('#clickme').style.display = 'flex';
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="headerContainer">
+      <a id="mainlink" href="/"><h1>The Lagom Gazette</h1></a>
+      <a id="zuruck" href="http://localhost:1313">Back to lagom.org</a>
+    </div>
+  </header>
+  <div class="container">
+    <main>
+      <article>
+        <h2>The Revolution of Reusable Space Launchers</h2>
+        <p id="fog">The advent of reusable rocket technology is revolutionizing space travel, making it more affordable, sustainable, and accessible than ever before. Traditionally, rockets were single-use machines, discarded after a single flight, which made space missions prohibitively expensive. However, the development of reusable rockets, has fundamentally changed this paradigm.</p>
+        <a id="payoutlink" href="#" onclick="(function a(event) { location.href = 'http://localhost:1313/payout?amount=100&provider=test-provider&cb=' + btoa(location.href) })()">
+          This is a paid article, pay 1 EUR with Lagom to read.
+        </a>
+
+        <div id="clickme" style="display: none;">
+          <section id="section" class="demo">
+            <a href="#"><span></span></a>
+          </section>
+          Click on the link to test Lagom micro payment
+        </div>
+      </article>
+
+    <div class="nit">
+      <p class="explained"> Lagom Explained:</p>
+      <p>Welcome to the micro-payment demo webpage.</p>
+      <p>Clicking on the link above ⤴️  will redirect you to the Lagom payment page.</p>
+      <!-- <p>The payment is handled simply through a link, <a href="https://lagom.org/docs">visit our docs</a> to learn more.</p> -->
+    </div>
+    </main>
+
+    <aside>
+        <h3>Science Fact Blast</h3>
+        <ul>
+          <li>Helium balloons float because helium is lighter than air.</li>
+          <li>A day on Venus is longer than a year on Venus.</li>
+          <li>There are more atoms in a glass of water than glasses of water in all the oceans.</li>
+          <li>Water can exist in three states at the same time (this is called the triple point).</li>
+          <li>You can't taste food without saliva.</li>
+          <li>Hot water can freeze faster than cold water under certain conditions (this is called the Mpemba effect).</li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>
