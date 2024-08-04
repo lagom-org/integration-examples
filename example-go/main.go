@@ -46,9 +46,9 @@ func main() {
 	http.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		err := lagomVerify(r, "/", 100)
 		if err != nil {
-			http.ServeFile(w, r, "../public/article.html")
+			http.ServeFile(w, r, "../public/article0.html")
 		} else {
-			http.ServeFile(w, r, "../public/full/article.html")
+			http.ServeFile(w, r, "../public/full/article0.html")
 		}
 	}))
 

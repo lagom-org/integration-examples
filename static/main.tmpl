@@ -58,8 +58,10 @@
     }
     aside {
       z-index: 10;
-      width: 250px;
+      width: 220px;
       padding: 20px;
+      padding-left: 35px;
+      padding-right: 35px;
       background-color: #f5f5f5;
       border-left: 1px solid #ddd;
     }
@@ -67,7 +69,6 @@
       font-style: italic;
       margin: auto;
       padding-left: 0px;
-      width: 90%;
       padding-bottom: 15px;
       padding-top: 10px;
     }
@@ -78,7 +79,6 @@
     aside ul {
       margin: auto;
       padding-left: 0px;
-      width: 90%;
     }
     header a {
       color: inherit;
@@ -216,6 +216,22 @@
       animation: sdb03 3s infinite;
       box-sizing: border-box;
     }
+    .transparentlink {
+      text-decoration: none;
+      color: inherit;
+    }
+    .transparentlink:nth-child(2) {
+      margin-top: 30px;
+      display: block;
+    }
+    a.transparentlink > p {
+      margin-top: 7px;
+    }
+    a.transparentlink > h2 {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
     @keyframes sdb03 {
       0% {
         opacity: 0;
@@ -255,40 +271,11 @@
   </header>
   <div class="container">
     <main>
-      <article>
-        <h2>The Revolution of Reusable Space Launchers</h2>
-        <p id="fog">The advent of reusable rocket technology is revolutionizing space travel, making it more affordable, sustainable, and accessible than ever before. Traditionally, rockets were single-use machines, discarded after a single flight, which made space missions prohibitively expensive. However, the development of reusable rockets, has fundamentally changed this paradigm.</p>
-        <a id="payoutlink" href="#" onclick="(function a(event) { location.href = 'http://localhost:1313/payout?amount=100&provider=test-provider&cb=' + btoa(location.href) })()">
-          This is a paid article, pay 1 EUR with Lagom to read.
-        </a>
-
-        <div id="clickme" style="display: none;">
-          <section id="section" class="demo">
-            <a href="#"><span></span></a>
-          </section>
-          Click on the link to test Lagom micro payment
-        </div>
-      </article>
-
-    <div class="nit">
-      <p class="explained"> Lagom Explained:</p>
-      <p>Welcome to the micro-payment demo webpage.</p>
-      <p>Clicking on the link above ⤴️  will redirect you to the Lagom payment page.</p>
-      <!-- <p>The payment is handled simply through a link, <a href="https://lagom.org/docs">visit our docs</a> to learn more.</p> -->
-    </div>
+      MAIN_CONTENT
     </main>
-
     <aside>
-        <h3>Science Fact Blast</h3>
-        <ul>
-          <li>Helium balloons float because helium is lighter than air.</li>
-          <li>A day on Venus is longer than a year on Venus.</li>
-          <li>There are more atoms in a glass of water than glasses of water in all the oceans.</li>
-          <li>Water can exist in three states at the same time (this is called the triple point).</li>
-          <li>You can't taste food without saliva.</li>
-          <li>Hot water can freeze faster than cold water under certain conditions (this is called the Mpemba effect).</li>
-      </ul>
+      ASIDE_CONTENT
     </aside>
   </div>
-</body>
-</html>
+  </body>
+  </html>

@@ -1,0 +1,34 @@
+<script>
+    // on page load, check cookies
+    window.addEventListener('load', function() {
+        if (document.cookie.indexOf('initials') !== -1) {
+            const ll = document.getElementById('lagomlink')
+            ll.innerHTML = 'My account';
+            ll.href = '/account'
+            ll.onclick = null;
+        }
+
+        document.querySelectorAll('.nit').forEach(e => {
+            e.style.display = 'none';
+        })
+    })
+</script>
+
+<a id="lagomlink" href="#" onclick="(
+    function a(event) {
+        location.href = 'http://localhost:1313/lagom-login?provider=test-provider&cb=' + btoa('http://localhost:8080/account_cb')
+    }
+)()">
+    Click here to login with lagom
+</a>
+
+
+<h3>Science Fact Blast</h3>
+<ul>
+    <li>Helium balloons float because helium is lighter than air.</li>
+    <li>A day on Venus is longer than a year on Venus.</li>
+    <li>There are more atoms in a glass of water than glasses of water in all the oceans.</li>
+    <li>Water can exist in three states at the same time (this is called the triple point).</li>
+    <li>You can't taste food without saliva.</li>
+    <li>Hot water can freeze faster than cold water under certain conditions (this is called the Mpemba effect).</li>
+</ul>

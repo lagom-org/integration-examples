@@ -1,5 +1,3 @@
-//! Default Compute template program.
-
 use fastly::http::StatusCode;
 use fastly::{mime, Error, Request, Response};
 
@@ -39,8 +37,8 @@ fn lagom_verify(req: &Request, page: &str, amount: i64) -> Result<(), Error> {
 
 #[fastly::main]
 fn main(req: Request) -> Result<Response, Error> {
-    let article = include_str!("../../public/article.html").to_string();
-    let full_article = include_str!("../../public/full/article.html").to_string();
+    let article = include_str!("../../public/article0.html").to_string();
+    let full_article = include_str!("../../public/full/article0.html").to_string();
     let favicon = include_bytes!("../../public/favicon.ico");
 
     let body = if req.get_path() == "/favicon.ico" {

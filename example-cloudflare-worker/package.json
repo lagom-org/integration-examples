@@ -5,7 +5,8 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "start": "wrangler dev",
+    "inline": "node inline.js"
   },
   "devDependencies": {
     "wrangler": "^3.51.0"

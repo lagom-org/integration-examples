@@ -1,0 +1,20 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["pldubouilh@gmail.com"]
+cloned_from = "https://github.com/fastly/compute-starter-kit-rust-default"
+description = ""
+language = "rust"
+manifest_version = 3
+name = "example-fastly-full"
+service_id = "YkmO5yr2ILNRXOLPRcKxB5"
+
+[scripts]
+  build = "cargo build --bin fastly-compute-project --release --target wasm32-wasi --color always"
+
+[local_server.backends.apilocal]
+url = "http://127.0.0.1:3000"
+
+[[local_server.kv_stores.lagom_test_users]]
+key = "dummy"
+data = "placeholder"

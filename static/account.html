@@ -1,0 +1,42 @@
+<script>
+    window.addEventListener('load', function() {
+        if (!document.cookie.includes("initials")) {
+            console.log("something bad happened")
+            return
+        }
+
+        const usernameTag = document.getElementById('username');
+        const initialsb64 = document.cookie.split(";").find(e => e.includes("initials"))
+        const initials = atob(initialsb64.split("=")[1]);
+
+        usernameTag.innerHTML = initials;
+
+        const paidTag = document.getElementById('paid');
+
+        fetch('/listPaid', { method: 'POST' }).then(response => {
+            return response.text();
+        }).then(data => {
+            JSON.parse(data).forEach(page => {
+                paidTag.innerHTML += `<a href="${page.Callback}">${page.Callback}</a> <br />`
+            })
+        })
+    })
+
+</script>
+
+<article>
+    <h2 id="hallo">
+        Hello <span id="username"></span>
+    </h2>
+
+    <a href="/logout"> Logout </a>
+
+    <br />
+    <br />
+
+    you have purchased access for the following pages:
+    <div id="paid">
+
+    </div>
+</article>
+
